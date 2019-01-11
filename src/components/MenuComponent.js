@@ -15,7 +15,7 @@ class Menu extends Component {
 	}
 
 	renderDish(dish) {
-		if ( dish != null ) {
+		if (dish != null) {
 			return (
 				<Card>
 					<CardImg width="100%" src={dish.image} alt={dish.name} />
@@ -32,6 +32,40 @@ class Menu extends Component {
 			);
 		}
 	}
+
+	renderReviewList(dish) {
+		const reviews = dish.comments.map((comment) => {
+			return (
+				<li> { comment.comment } </li>
+			);
+		});
+
+		return (
+			<ul>
+				{ reviews }
+			</ul>
+		);
+	}
+
+	renderReviews(dish) {
+		if (dish != null) {
+			return (
+				<Card>
+					<CardBody>
+						<CardText> 
+							{ this.renderReviewList(dish) }
+						</CardText>
+					</CardBody>
+				</Card>
+			);
+		}
+		else {
+			return (
+				<div></div>
+			);
+		}
+	}
+
 
 	render() {
 		const menu = this.props.dishes.map((dish) => {
@@ -53,6 +87,7 @@ class Menu extends Component {
 				</div>
 				<div className="row">
 					{this.renderDish(this.state.selectedDish)}
+					{this.renderReviews(this.state.selectedDish)}
 				</div>
 			</div>
 		);
