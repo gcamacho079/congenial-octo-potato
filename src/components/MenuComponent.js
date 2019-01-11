@@ -17,7 +17,7 @@ class Menu extends Component {
 	renderDish(dish) {
 		if (dish != null) {
 			return (
-				<Card>
+				<Card className="col-12 col-md-6">
 					<CardImg width="100%" src={dish.image} alt={dish.name} />
 					<CardBody>
 					 	<CardTitle>{dish.name}</CardTitle>
@@ -50,8 +50,9 @@ class Menu extends Component {
 	renderReviews(dish) {
 		if (dish != null) {
 			return (
-				<Card>
+				<Card className="col-12 col-md-6">
 					<CardBody>
+						<CardTitle>Comments</CardTitle>
 						<CardText> 
 							{ this.renderReviewList(dish) }
 						</CardText>
