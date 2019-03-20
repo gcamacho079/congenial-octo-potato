@@ -24,7 +24,7 @@ class App extends Component {
             </NavbarBrand>
           </div>
         </Navbar>
-        <Menu dishes={this.state.dishes} />
+        <Menu ariaLive="polite" dishes={this.state.dishes} />
       </div>
     );
   }

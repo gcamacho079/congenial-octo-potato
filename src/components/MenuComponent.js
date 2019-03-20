@@ -15,11 +15,19 @@ class Menu extends Component {
 		this.setState({ selectedDish: dish });
 	}
 
+	handleKeyPress(dish) {
+		console.log(dish);
+	}
+
 	render() {
 		const menu = this.props.dishes.map((dish) => {
 			return (
 				<div key={dish.id} className="col-12 col-md-3 p-1">
-					<Card onClick={ () => this.onDishSelect(dish) }>
+					<Card 
+						onClick={ () => this.onDishSelect(dish) } 
+						onKeyPress={ () => this.handleKeyPress(dish) }
+						role="button" 
+						tabIndex="0">
 						<CardImg width="100%" src={dish.image} alt={dish.name} />
 						<CardImgOverlay>
 						 	<CardTitle>{dish.name}</CardTitle>
