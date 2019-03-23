@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div aria-live="polite" className="App">
         <Navbar dark color="primary">
           <div className="container">
             <NavbarBrand href="/">
@@ -24,7 +24,7 @@ class App extends Component {
             </NavbarBrand>
           </div>
         </Navbar>
-        <Menu ariaLive="polite" dishes={this.state.dishes} />
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }

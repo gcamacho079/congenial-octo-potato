@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
 	constructor(props) {
@@ -28,12 +28,14 @@ class DishDetail extends Component {
 	renderReviewList(dish) {
 		const reviews = dish.comments.map((comment) => {
 			return (
-				<li> { comment.comment } </li>
+				<li key={ comment.id } className="dish__review-item">
+					{ comment.comment }<br />— { comment.author }, { Date.parse(comment.date) }
+				</li>
 			);
 		});
 
 		return (
-			<ul>
+			<ul className="dish__review-list">
 				{ reviews }
 			</ul>
 		);
@@ -45,9 +47,7 @@ class DishDetail extends Component {
 				<Card className="col-12 col-md-6">
 					<CardBody>
 						<CardTitle>Comments</CardTitle>
-						<CardText> 
-							{ this.renderReviewList(dish) }
-						</CardText>
+						{ this.renderReviewList(dish) }
 					</CardBody>
 				</Card>
 			);
