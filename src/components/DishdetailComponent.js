@@ -25,11 +25,22 @@ class DishDetail extends Component {
 		}
 	}
 
+	buildDate(date) {
+		var date = new Date(date);
+		const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		const month = date.getMonth();
+		const day = date.getDate();
+		const year = date.getFullYear();
+		const readableDate = months[month] + ' ' + day + ', ' + year;
+		return readableDate;
+	}
+
 	renderReviewList(dish) {
 		const reviews = dish.comments.map((comment) => {
+			const reviewDate = this.buildDate(comment.date);
 			return (
 				<li key={ comment.id } className="dish__review-item">
-					{ comment.comment }<br />— { comment.author }, { Date.parse(comment.date) }
+					{ comment.comment }<br />— { comment.author }, { reviewDate }
 				</li>
 			);
 		});
