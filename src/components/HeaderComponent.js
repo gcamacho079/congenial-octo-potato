@@ -5,7 +5,7 @@ class Header extends Component {
 	render() {
 		return (
 			<>
-				<Navbar dark color="primary">
+				<Navbar dark>
           <div className="container">
             <NavbarBrand href="/">
               <img src={process.env.PUBLIC_URL + "assets/images/logo.png"} alt="Ristorante Con Fusion" />
