@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import Header from './HeaderComponent';
 import Menu from './MenuComponent';
 import DishDetail from './DishdetailComponent';
 import { DISHES } from '../shared/dishes';
@@ -20,14 +20,8 @@ class Main extends Component {
 
   render() {
     return (
-      <div aria-live="polite" className="App">
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">
-              <img src={process.env.PUBLIC_URL + "assets/images/logo.png"} alt="Ristorante Con Fusion" />
-            </NavbarBrand>
-          </div>
-        </Navbar>
+      <div className="App">
+        <Header />
         <Menu 
           dishes={this.state.dishes} 
           onClick={ (dishId) => this.onDishSelect(dishId) } />
