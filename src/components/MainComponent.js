@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './HeaderComponent';
+import Home from './HomeComponent';
 import Menu from './MenuComponent';
 import DishDetail from './DishdetailComponent';
 import Footer from './FooterComponent';
@@ -16,6 +17,12 @@ class Main extends Component {
   }
 
   render() {
+    const HomePage = () => {
+      return (
+        <Home />
+      );
+    }
+
     return (
       <div className="App">
         <Header />
